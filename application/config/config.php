@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 //http://phpnutech-irfan.epizy.com/
-$config['base_url'] = 'http://localhost/php-dataBarang/';
+$config['base_url'] = 'http://localhost/php-barang/';
 
 /*
 |--------------------------------------------------------------------------
