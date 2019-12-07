@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+$fontFamily: "Open Sans",
+sans-serif;
+
+.badge {
+	margin-left: 3px;
+}
+
+img.display-none {
+	display: none;
+}
+
+* {
+	font-family: $fontFamily;
+}
+
+$pink: #f71e68;
+
+._bgPink {
+	background-color: $pink;
+}
+
+._textPink {
+	color: $pink;
+}
+
+._textBlue {
+	color: #0079FB;
+}
+
+._addtoFav {
+	cursor: pointer;
+
+	input[type="checkbox"]:checked {
+		&~._active {
+			display: inline-block !important;
+		}
+
+		&~._inactive {
+			display: none;
+		}
+	}
+}
+
+._before {
+	bottom: 100%;
+	right: 0;
+}
+
+._cartBtn {
+	right: 1.25rem;
+}

@@ -9,20 +9,20 @@
 	<div class="row mt-3">
 		<div class="col-md-6">
 			<button type="button" class="btn btn-primary tombolTambahData" data-toggle="modal" data-target="#formModal">
-				[+] Tambah Barang
+				<i class="fas fa-plus"></i> <strong>Tambah Barang</strong>
 			</button>
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md">
 			<h3 class="mt-3">Daftar Barang</h3>
 
 			<div class="row mt-3">
-				<div class="col-md-8">
+				<div class="col-md-6">
 					<form action="<?= base_url('barang'); ?>" method="post">
 						<div class="input-group mb-3">
-							<input type="text" class="form-control" placeholder="Cari data barang.." name="keyword" autocomplete="off" autofocus>
+							<input type="text" class="form-control" placeholder="Cari Barang .." name="keyword" autocomplete="off" autofocus>
 							<div class="input-group-append">
 								<input class="btn btn-primary" type="submit" name="submit">
 							</div>
@@ -31,9 +31,9 @@
 				</div>
 			</div>
 			<h5>Results : <?= $total_rows; ?></h5>
-			<table class="table">
-				<thead>
-					<tr>
+			<table class="table table-borderless table-hover">
+				<thead class="thead-dark">
+					<tr class="text-center">
 						<th scope="col">#</th>
 						<th scope="col">Foto Barang</th>
 						<th scope="col">Nama Barang</th>
@@ -41,27 +41,27 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php if( empty($barang) ) : ?>
+					<?php if (empty($barang)) : ?>
 						<tr>
 							<td colspan="3">
 								<div class="alert alert-danger" role="alert">
 									Data barang tidak ditemukan
-								</div>	
-							</td>
-						</tr>					
-					<?php endif; ?>
-					<?php foreach( $barang as $brg) : ?>
-						<tr>
-							<th scope="row"><?= ++$start; ?></th>
-							<td><img src="<?= base_url(); ?>upload/product/<?= $brg['fotoBarang']; ?>" class="card-img" alt="Photo"></td>
-							<td><?= $brg['namaBarang']; ?></td>
-							<td>
-								<a href="<?= base_url(); ?>barang/detail/<?= $brg['id']; ?>" class ="badge badge-warning">detail</a>
-								<a href="<?= base_url(); ?>barang/edit/<?= $brg['id']; ?>" class ="badge badge-success tampilModalEdit" data-toggle="modal" data-target="#formModal" data-id="<?= $brg['id']; ?>">edit</a>	
-								<a href="<?= base_url(); ?>barang/hapus/<?= $brg['id']; ?>" class ="badge badge-danger" onclick="return confirm('Apakah kamu ingin menghapus data ini?')">hapus</a>
+								</div>
 							</td>
 						</tr>
-					<?php endforeach; ?>	
+					<?php endif; ?>
+					<?php foreach ($barang as $brg) : ?>
+						<tr class="text-center">
+							<th scope="row"><?= ++$start; ?></th>
+							<td><img src="<?= base_url(); ?>upload/product/<?= $brg['fotoBarang']; ?>" alt="Photo" width="80"></td>
+							<td><?= $brg['namaBarang']; ?></td>
+							<td>
+								<a href="<?= base_url(); ?>barang/detail/<?= $brg['id']; ?>" class="btn btn-primary"><i class="fas fa-expand" title="Detail"></i></a>
+								<a href="<?= base_url(); ?>barang/edit/<?= $brg['id']; ?>" class="btn btn-primary tampilModalEdit" data-toggle="modal" data-target="#formModal" data-id="<?= $brg['id']; ?>"><i class="fas fa-edit" title="Edit"></i></a>
+								<a href="<?= base_url(); ?>barang/hapus/<?= $brg['id']; ?>" class="btn btn-danger" onclick="return confirm('Apakah kamu ingin menghapus data ini?')"><i class="fas fa-trash-alt" title="Hapus"></i></a>
+							</td>
+						</tr>
+					<?php endforeach; ?>
 				</tbody>
 			</table>
 			<?= $this->pagination->create_links(); ?>
@@ -103,17 +103,14 @@
 						<input type="number" class="form-control" id="stok" name="stok">
 					</div>
 					<div>
-						<div>
-						<img src="#" class="card-img" id="foto" alt="Photo" style="width: 100px;"><br>
-						</div>
-						<!-- <label for="fotoBarang">Uplo</label><br> -->
+						<label for="fotoBarang">Upload Foto</label><br>
 						<input type="file" id="fotoBarang" name="fotoBarang">
 					</div>
 
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-					<button type="submit" class="btn btn-primary">Tambah Data</button>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+				<button type="submit" class="btn btn-primary">Tambah Data</button>
 				</form>
 			</div>
 		</div>
