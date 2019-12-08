@@ -1,8 +1,9 @@
 <?php
 
-class Flasher {
+class Flasher
+{
 
-	public static function setFlash($pesan, $aksi, $tipe) 
+	public static function setFlash($pesan, $aksi, $tipe)
 	{
 		$_SESSION['flash'] = [
 			'pesan' => $pesan,
@@ -13,8 +14,8 @@ class Flasher {
 
 	public static function flash()
 	{
-		if( isset($_SESSION['flash']) ) {
-			echo '<div class="alert alert-'. $_SESSION['flash']['tipe'] . ' alert-dismissible fade show" role="alert">
+		if (isset($_SESSION['flash'])) {
+			echo '<div class="alert alert-' . $_SESSION['flash']['tipe'] . ' alert-dismissible fade show" role="alert">
 				Data Barang <strong>' . $_SESSION['flash']['pesan'] . '</strong> ' . $_SESSION['flash']['aksi'] . '
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
@@ -23,5 +24,10 @@ class Flasher {
 			unset($_SESSION['flash']);
 		}
 	}
-
 }
+
+// <?php Flasher::flash(); // ditambahkan dicontroller
+
+// Flasher::setFlash('gagal', 'diperbarui', 'danger');
+// header('Location: ' .  base_url() . 'barang');
+// exit; // ditambahkan diindex

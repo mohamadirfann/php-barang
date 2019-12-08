@@ -40,6 +40,48 @@ $(function () {
 
 });
 
+// Penanganan alert flashdata berhasil
+const flashSuccess = $('.success').data('flashdata');
+
+if (flashSuccess) {
+	Swal.fire({
+		title: 'Data Barang ',
+		text: 'Berhasil ' + flashSuccess,
+		icon: 'success'
+	});
+}
+
+// Penanganan alert flashdata gagal
+const flashError = $('.error').data('flashdata');
+
+if (flashError) {
+	Swal.fire({
+		title: 'Data Barang ',
+		text: 'Gagal ' + flashError,
+		icon: 'error'
+	});
+}
+
+$('.tombol-hapus').on('click', function (e) {
+
+	e.preventDefault();
+	const href = $(this).attr('href');
+
+	Swal.fire({
+		title: 'Apa kamu yakin',
+		text: "menghapus data barang ini?",
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Hapus Data!'
+	}).then((result) => {
+		if (result.value) {
+			document.location.href = href;
+		}
+	})
+});
+
 // $('.custom-file-input').on('change', function () {
 // 	let fileName = $(this).val().split('\\').pop();
 // 	$(this).next('.custom-file-label').addClass("selected").html(fileName);

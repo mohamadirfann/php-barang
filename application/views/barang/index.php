@@ -2,7 +2,8 @@
 
 	<div class="row mt-3">
 		<div class="col-lg-6">
-			<?php Flasher::flash(); ?>
+			<div class="success" data-flashdata="<?= $this->session->flashdata('success'); ?>"></div>
+			<div class="error" data-flashdata="<?= $this->session->flashdata('error'); ?>"></div>
 		</div>
 	</div>
 
@@ -58,7 +59,7 @@
 							<td>
 								<a href="<?= base_url(); ?>barang/detail/<?= $brg['id']; ?>" class="btn btn-primary"><i class="fas fa-expand" title="Detail"></i></a>
 								<a href="<?= base_url(); ?>barang/edit/<?= $brg['id']; ?>" class="btn btn-primary tampilModalEdit" data-toggle="modal" data-target="#formModal" data-id="<?= $brg['id']; ?>"><i class="fas fa-edit" title="Edit"></i></a>
-								<a href="<?= base_url(); ?>barang/hapus/<?= $brg['id']; ?>" class="btn btn-danger" onclick="return confirm('Apakah kamu ingin menghapus data ini?')"><i class="fas fa-trash-alt" title="Hapus"></i></a>
+								<a href="<?= base_url(); ?>barang/hapus/<?= $brg['id']; ?>" class="btn btn-danger tombol-hapus"><i class="fas fa-trash-alt" title="Hapus"></i></a>
 							</td>
 						</tr>
 					<?php endforeach; ?>

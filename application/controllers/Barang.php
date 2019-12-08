@@ -65,42 +65,34 @@ class Barang extends CI_Controller
 				$config['file_name'] = $fileName;
 				$config['overwrite'] = true;
 				$config['max_size']     = '100';
-				// $config['max_width'] = '1024';
-				// $config['max_height'] = '768';
 
 				$this->upload->initialize($config);
 
 				if (!$this->upload->do_upload('fotoBarang')) {
-					Flasher::setFlash('gagal', 'ditambahkan', 'danger');
-					header('Location: ' .  base_url() . 'barang');
-					exit;
+					$this->session->set_flashdata('error', 'Ditambahkan');
+					redirect('barang');
 				} else {
-					Flasher::setFlash('berhasil', 'ditambahkan', 'success');
-					header('Location: ' .  base_url() . 'barang');
-					exit;
+					$this->session->set_flashdata('success', 'Ditambahkan');
+					redirect('barang');
 				}
 			} else {
-				Flasher::setFlash('gagal', 'ditambahkan', 'danger');
-				header('Location: ' .  base_url() . 'barang');
-				exit;
+				$this->session->set_flashdata('error', 'Ditambahkan');
+				redirect('barang');
 			}
 		} else {
-			Flasher::setFlash('gagal', 'ditambahkan', 'danger');
-			header('Location: ' .  base_url() . 'barang');
-			exit;
+			$this->session->set_flashdata('error', 'Ditambahkan');
+			redirect('barang');
 		}
 	}
 
 	public function hapus($id)
 	{
 		if ($this->Barang_model->hapusDataBarang($id) > 0) {
-			Flasher::setFlash('berhasil', 'dihapus', 'success');
-			header('Location: ' .  base_url() . 'barang');
-			exit;
+			$this->session->set_flashdata('success', 'Dihapus');
+			redirect('barang');
 		} else {
-			Flasher::setFlash('gagal', 'dihapus', 'danger');
-			header('Location: ' .  base_url() . 'barang');
-			exit;
+			$this->session->set_flashdata('error', 'Dihapus');
+			redirect('barang');
 		}
 	}
 
@@ -121,13 +113,11 @@ class Barang extends CI_Controller
 	public function editWithoutUpload()
 	{
 		if ($this->Barang_model->editDataBarang($_POST) > 0) {
-			Flasher::setFlash('berhasil', 'diperbarui', 'success');
-			header('Location: ' . base_url() . 'barang');
-			exit;
+			$this->session->set_flashdata('success', 'Diperbarui');
+			redirect('barang');
 		} else {
-			Flasher::setFlash('gagal', 'diperbarui', 'danger');
-			header('Location: ' . base_url() . 'barang');
-			exit;
+			$this->session->set_flashdata('error', 'Diperbarui');
+			redirect('barang');
 		}
 	}
 
@@ -141,24 +131,19 @@ class Barang extends CI_Controller
 			$config['allowed_types'] = 'jpg|png';
 			$config['file_name'] =  $fileName;
 			$config['max_size']     = '100';
-			// $config['max_width'] = '1024';
-			// $config['max_height'] = '768';
 
 			$this->upload->initialize($config);
 
 			if (!$this->upload->do_upload('fotoBarang')) {
-				Flasher::setFlash('gagal', 'diperbarui', 'danger');
-				header('Location: ' .  base_url() . 'barang');
-				exit;
+				$this->session->set_flashdata('error', 'Diperbarui');
+				redirect('barang');
 			} else {
-				Flasher::setFlash('berhasil', 'diperbarui', 'success');
-				header('Location: ' .  base_url() . 'barang');
-				exit;
+				$this->session->set_flashdata('success', 'Diperbarui');
+				redirect('barang');
 			}
 		} else {
-			Flasher::setFlash('gagal', 'diperbarui', 'danger');
-			header('Location: ' .  base_url() . 'barang');
-			exit;
+			$this->session->set_flashdata('error', 'Diperbarui');
+			redirect('barang');
 		}
 	}
 
