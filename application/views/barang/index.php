@@ -85,32 +85,55 @@
 
 			<div class="modal-body">
 
-				<form action="<?= base_url(); ?>barang/tambah" method="post" enctype="multipart/form-data">
+				<form action="<?= base_url(); ?>barang/tambah" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
 					<input type="hidden" name="id" id="id">
-					<div class="form-group">
-						<label for="namaBarang">Nama Barang</label>
-						<input type="text" class="form-control" id="namaBarang" name="namaBarang">
+					<div class="form-group row">
+						<label for="namaBarang" class="col-sm-4 col-form-label">Nama Barang</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" id="namaBarang" name="namaBarang" required>
+							<div class="invalid-feedback">
+								Field Nama Barang tidak boleh kosong.
+							</div>
+						</div>
 					</div>
-					<div class="form-group">
-						<label for="hargaBeli">Harga Beli</label>
-						<input type="number" class="form-control" id="hargaBeli" name="hargaBeli">
+					<div class="form-group row">
+						<label for="hargaBeli" class="col-sm-4 col-form-label">Harga Beli</label>
+						<div class="col-sm-8">
+							<input type="number" class="form-control" id="hargaBeli" name="hargaBeli" required>
+							<div class="invalid-feedback">
+								Field Harga Beli tidak boleh kosong.
+							</div>
+						</div>
 					</div>
-					<div class="form-group">
-						<label for="hargaJual">Harga Jual</label>
-						<input type="number" class="form-control" id="hargaJual" name="hargaJual">
+					<div class="form-group row">
+						<label for="hargaJual" class="col-sm-4 col-form-label">Harga Jual</label>
+						<div class="col-sm-8">
+							<input type="number" class="form-control" id="hargaJual" name="hargaJual" required>
+							<div class="invalid-feedback">
+								Field Harga Beli tidak boleh kosong.
+							</div>
+						</div>
 					</div>
-					<div class="form-group">
-						<label for="stok">Stok Barang</label>
-						<input type="number" class="form-control" id="stok" name="stok">
+					<div class="form-group row">
+						<label for="stok" class="col-sm-4 col-form-label">Stok Barang</label>
+						<div class="col-sm-8">
+							<input type="number" class="form-control" id="stok" name="stok" required>
+							<div class="invalid-feedback">
+								Field Stok Barang tidak boleh kosong.
+							</div>
+						</div>
 					</div>
-					<div>
+					<div class="custom-file">
+						<input type="file" class="custom-file-input" id="fotoBarang" name="fotoBarang" accept="image/x-png,image/jpeg" aria-describedby="inputGroupFileAddon03">
+						<label class="custom-file-label" for="fotoBarang">Upload Foto</label>
+					</div>
+					<!-- <div>
 						<label for="fotoBarang">Upload Foto</label><br>
 						<input type="file" id="fotoBarang" name="fotoBarang">
-					</div>
-
+					</div> -->
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+				<button type="button" class="btn btn-danger tombolCancel" data-dismiss="modal">Batal</button>
 				<button type="submit" class="btn btn-primary">Tambah Data</button>
 				</form>
 			</div>

@@ -1,3 +1,4 @@
+// Manipulasi insert dan delete data dalam satu modal
 $(function () {
 
 	$('.tombolTambahData').on('click', function () {
@@ -32,6 +33,7 @@ $(function () {
 				$('#hargaBeli').val(data.hargaBeli);
 				$('#hargaJual').val(data.hargaJual);
 				$('#stok').val(data.stok);
+				$('#fotoBarang').val(data.fotoBarang);
 				$('#id').val(data.id);
 			}
 		});
@@ -62,6 +64,7 @@ if (flashError) {
 	});
 }
 
+// Penanganan onclick confirm pada tombol hapus
 $('.tombol-hapus').on('click', function (e) {
 
 	e.preventDefault();
@@ -82,10 +85,36 @@ $('.tombol-hapus').on('click', function (e) {
 	})
 });
 
-// $('.custom-file-input').on('change', function () {
-// 	let fileName = $(this).val().split('\\').pop();
-// 	$(this).next('.custom-file-label').addClass("selected").html(fileName);
-// });
+// Penanganan nama foto setelah dipilih
+$('.custom-file-input').on('change', function () {
+	let fileName = $(this).val().split('\\').pop();
+	$(this).next('.custom-file-label').addClass("selected").html(fileName);
+});
+
+// Penanganan ketika tombol cancel diklik
+$('.tombolCancel').on('click', function () {
+	$('.custom-file-label').removeClass("selected").html('Upload Foto');
+	$('#fotoBarang').val('');
+});
+
+// Menangani Form Validation Bootstrap
+$(function () {
+	'use strict';
+	window.addEventListener('load', function () {
+		// Fetch all the forms we want to apply custom Bootstrap validation styles to
+		var forms = document.getElementsByClassName('needs-validation');
+		// Loop over them and prevent submission
+		var validation = Array.prototype.filter.call(forms, function (form) {
+			form.addEventListener('submit', function (event) {
+				if (form.checkValidity() === false) {
+					event.preventDefault();
+					event.stopPropagation();
+				}
+				form.classList.add('was-validated');
+			}, false);
+		});
+	}, false);
+})();
 
 //Preview Image
 // function readURL(input) {
