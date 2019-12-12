@@ -25,7 +25,7 @@
 						<div class="input-group mb-3">
 							<input type="text" class="form-control" placeholder="Cari Barang .." name="keyword" autocomplete="off" autofocus>
 							<div class="input-group-append">
-								<input class="btn btn-primary" type="submit" name="submit">
+								<input class="btn btn-primary" type="submit" name="submit" value="Cari">
 							</div>
 						</div>
 					</form>
@@ -44,7 +44,7 @@
 				<tbody>
 					<?php if (empty($barang)) : ?>
 						<tr>
-							<td colspan="3">
+							<td colspan="6">
 								<div class="alert alert-danger" role="alert">
 									Data barang tidak ditemukan
 								</div>
