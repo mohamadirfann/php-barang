@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="row mt-4">
+	<div class="row mt-4 justify-content-center">
 		<div class="col-lg-4 col-md-6">
 
 			<div class="card mb-5 shadow-lg border-0">
