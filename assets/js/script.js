@@ -33,7 +33,6 @@ $(function () {
 				$('#hargaBeli').val(data.hargaBeli);
 				$('#hargaJual').val(data.hargaJual);
 				$('#stok').val(data.stok);
-				$('#fotoBarang').val(data.fotoBarang);
 				$('#id').val(data.id);
 			}
 		});
