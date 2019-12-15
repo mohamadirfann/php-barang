@@ -118,6 +118,7 @@ $(function () {
 // Menangani Data Tables
 $(document).ready(function () {
 	$('#tabelku').DataTable({
+		stateSave: true,
 		"lengthMenu": [5, 10, 25, 50, 75, 100],
 		"language": {
 			"url": "//cdn.datatables.net/plug-ins/1.10.9/i18n/Indonesian.json",

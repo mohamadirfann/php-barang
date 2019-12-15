@@ -4,6 +4,7 @@ class Barang_model extends CI_model
 {
 	public function getAllBarang()
 	{
+		$this->db->order_by("id", "asc");
 		return $this->db->get('barang')->result_array();
 	}
 
