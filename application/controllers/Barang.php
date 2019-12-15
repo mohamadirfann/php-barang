@@ -12,28 +12,7 @@ class Barang extends CI_Controller
 	public function index()
 	{
 		$data['judul'] = 'Daftar Barang';
-
-		//Load library pagination
-		$this->load->library('pagination');
-
-		if ($this->input->post('submit')) {
-			$data['keyword'] = $this->input->post('keyword');
-			$this->session->set_userdata('keyword', $data['keyword']);
-		} else {
-			$data['keyword'] = $this->session->userdata('keyword');
-		}
-
-		// $config['total_rows'] = $this->Barang_model->pageDataBarang();
-		$this->db->like('namaBarang', $data['keyword']);
-		$this->db->from('barang');
-		$config['total_rows'] = $this->db->count_all_results();
-		$data['total_rows'] = $config['total_rows'];
-		$config['per_page'] = 4;
-
-		$this->pagination->initialize($config);
-
-		$data['start'] = $this->uri->segment(3);
-		$data['barang'] = $this->Barang_model->getAllBarang($config['per_page'], $data['start'], $data['keyword']);
+		$data['barang'] = $this->Barang_model->getAllBarang();
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('barang/index', $data);

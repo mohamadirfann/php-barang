@@ -7,38 +7,25 @@
 		</div>
 	</div>
 
-	<div class="row mt-3">
+	<h1 class="mt-2">Daftar Barang</h1>
+
+	<div class="row mt-3 mb-2">
 		<div class="col-md-6">
 			<button type="button" class="btn btn-primary tombolTambahData" data-toggle="modal" data-target="#formModal">
-				<i class="fas fa-plus"></i> <strong>Tambah Barang</strong>
+				<i class="fas fa-plus-circle"></i> <strong>Tambah Barang</strong>
 			</button>
 		</div>
 	</div>
 
-	<div class="row">
+	<div class="row mb-5">
 		<div class="col-md">
-			<h3 class="mt-3">Daftar Barang</h3>
-
-			<div class="row mt-3">
-				<div class="col-md-6">
-					<form action="<?= base_url('barang'); ?>" method="post">
-						<div class="input-group mb-3">
-							<input type="text" class="form-control" placeholder="Cari Barang .." name="keyword" autocomplete="off" autofocus>
-							<div class="input-group-append">
-								<input class="btn btn-primary" type="submit" name="submit" value="Cari">
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-			<h5>Results : <?= $total_rows; ?></h5>
-			<table class="table table-borderless table-hover">
+			<table class="table table-bordered table-striped table-hover" id="tabelku">
 				<thead class="thead-dark">
 					<tr class="text-center">
 						<th scope="col">#</th>
-						<th scope="col">Foto Barang</th>
+						<th scope="col">Gambar</th>
 						<th scope="col">Nama Barang</th>
-						<th scope="col">Aksi</th>
+						<th scope="col"><i class="fas fa-sm fa-cog"></i> Aksi</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -51,9 +38,10 @@
 							</td>
 						</tr>
 					<?php endif; ?>
-					<?php foreach ($barang as $brg) : ?>
+					<?php $no = 1;
+					foreach ($barang as $brg) : ?>
 						<tr class="text-center">
-							<th scope="row"><?= ++$start; ?></th>
+							<th scope="row"><?= $no++; ?></th>
 							<td><img src="<?= base_url(); ?>upload/product/<?= $brg['fotoBarang']; ?>" alt="Photo" width="80"></td>
 							<td><?= $brg['namaBarang']; ?></td>
 							<td>
@@ -65,7 +53,6 @@
 					<?php endforeach; ?>
 				</tbody>
 			</table>
-			<?= $this->pagination->create_links(); ?>
 		</div>
 	</div>
 
@@ -127,10 +114,6 @@
 						<input type="file" class="custom-file-input" id="fotoBarang" name="fotoBarang" accept="image/x-png,image/jpeg" aria-describedby="inputGroupFileAddon03">
 						<label class="custom-file-label" for="fotoBarang">Upload Foto</label>
 					</div>
-					<!-- <div>
-						<label for="fotoBarang">Upload Foto</label><br>
-						<input type="file" id="fotoBarang" name="fotoBarang">
-					</div> -->
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-danger tombolCancel" data-dismiss="modal">Batal</button>

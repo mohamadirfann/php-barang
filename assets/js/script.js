@@ -113,7 +113,18 @@ $(function () {
 			}, false);
 		});
 	}, false);
-})();
+});
+
+// Menangani Data Tables
+$(document).ready(function () {
+	$('#tabelku').DataTable({
+		"lengthMenu": [5, 10, 25, 50, 75, 100],
+		"language": {
+			"url": "//cdn.datatables.net/plug-ins/1.10.9/i18n/Indonesian.json",
+			"sEmptyTable": "Tidads"
+		}
+	});
+});
 
 //Preview Image
 // function readURL(input) {
